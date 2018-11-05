@@ -23,6 +23,8 @@
 package com.iluwatar.singleton;
 
 /**
+ * 需要同步锁
+ * 并且在实例对象上 加上 `volatile`
  * Double check locking
  * <p>
  * http://www.cs.umd.edu/~pugh/java/memoryModel/DoubleCheckedLocking.html

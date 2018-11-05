@@ -23,6 +23,11 @@
 package com.iluwatar.singleton;
 
 /**
+ *  恶汉模式单例:
+ *   1. 一个私有静态类
+ *   2. 一个私有当前静态实例
+ *   3. 一个共有静态获取实例方法
+ *  由于类实例对象是一个静态变量,所以加载类的时候我们就会创建类的实例对象,比较消耗内存
  * Singleton class. Eagerly initialized static instance guarantees thread safety.
  */
 public final class IvoryTower {
@@ -45,4 +50,5 @@ public final class IvoryTower {
   public static IvoryTower getInstance() {
     return INSTANCE;
   }
+
 }

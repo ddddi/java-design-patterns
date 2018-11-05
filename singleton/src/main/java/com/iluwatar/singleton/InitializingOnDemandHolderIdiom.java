@@ -23,6 +23,8 @@
 package com.iluwatar.singleton;
 
 /**
+ *  使用静态内部类只创建一次的方法 来创建单例模式
+ *  同样是懒加载
  * The Initialize-on-demand-holder idiom is a secure way of creating a lazy initialized singleton
  * object in Java.
  * <p>
