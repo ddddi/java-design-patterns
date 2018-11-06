@@ -25,7 +25,22 @@ package com.iluwatar.factorykit;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.function.Supplier;
+
 /**
+ * java.util.function: 主要用于实现java8最大的特性函数式编程
+ * Function类:
+ *
+ * Consumer类:
+ *      通过传递一个参数对参数进行操作
+ *      一个accept方法用来对输入的参数进行自定义操作,需要实例化对象的时候进行Override
+ *  Predicate类:
+ *      test 方法,是一个抽象方法,需要编程者自己去Override
+ *      and 方法 返回这两个对象分别调用test方法之后的到的布尔值相当于predicate1.test() && predicate2.test()
+ *      or  方法 返回这两个对象分别调用test方法之后的到的布尔值相当于predicate1.test() || predicate2.test()
+ *  Supplier类:
+ *      用于提供对象,只有一个get方法,需要编译自定义
+ *  直接new 接口 相当于直接new了一个实现该接口的匿名内部类
  * Factory-kit is a creational pattern which defines a factory of immutable content
  * with separated builder and factory interfaces to deal with the problem of
  * creating one of the objects specified directly in the factory-kit instance.

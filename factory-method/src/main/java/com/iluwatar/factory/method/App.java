@@ -26,7 +26,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * 
+ *  工厂方法模式: 即将 同一类型的调用类 继承同一父类  向上转为父类 在调用的模式
+ *  使用接口和继承类 将继承类给到当前类中 并向上转型为 接口  然后调用继承类的方法
+ *  转型:
+ *      向上转型:
+ *          父类引用指向子类对象, 但子类丢失除了与父类对象共有的其他方法
+ *      好处: 代码整洁
+ *      向下转型:
+ *          子类对象的父类引用赋予子类,需强制转换
+ *          里氏替换原则： “派生类（子类）对象能够替换其基类（超类）对象被使用。”
+ *
  * The Factory Method is a creational design pattern which uses factory methods to deal with the
  * problem of creating objects without specifying the exact class of object that will be created.
  * This is done by creating objects via calling a factory method either specified in an interface
