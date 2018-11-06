@@ -20,6 +20,7 @@ import java.util.stream.Collectors;
  */
 public class LambdaTest {
 
+    // 测试匿名内部类 用lambda实现
     @Test
     public void test1(){
         new Thread(new Runnable() {
@@ -34,6 +35,7 @@ public class LambdaTest {
 
     }
 
+    // JButton
     @Test
     public void test2(){
         JButton show = new JButton("Show");
@@ -49,6 +51,7 @@ public class LambdaTest {
         });
     }
 
+    // lambda 输出 及 使用 lambda 引用输出 (不更改参数的情况向可以使用,如果更改参数 需写完整的lambda方程)
     @Test
     public void test3(){
         List<String> features = Arrays.asList("la1","拉","la3","la4");
@@ -61,6 +64,7 @@ public class LambdaTest {
 
     }
 
+    // FIXME 有的字符串方法不能使用?
     @Test
     public void test4(){
         List<String> languages = Arrays.asList("Java","C++","Python");
@@ -95,7 +99,7 @@ public class LambdaTest {
                 .forEach((n) -> System.out.println("使用and方法合并"));
     }
 
-
+    // map() 类型转换
     @Test
     public void test6(){
         List<Integer> costBeforeTax = Arrays.asList(100,200,300,400,500);
@@ -108,6 +112,7 @@ public class LambdaTest {
                 .forEach(System.out::println);
     }
 
+    // reduce() 相加
     @Test
     public void test6_2(){
         List<Integer> costBeforeTax = Arrays.asList(100,200,300,400,500);
@@ -132,6 +137,7 @@ public class LambdaTest {
         List<String> filtered = strList.stream().fiter(x -> x.length)
     }*/
 
+    // map() 将小写转为大写
     @Test
     public void test8(){
         List<String> G7 = Arrays.asList("USA","Japan","FRANCE");
@@ -152,6 +158,7 @@ public class LambdaTest {
 //        System.out.println("Original List :%s, Square Without duplicates : %s %n",numbers,distinct);
     }
 
+    // mapToInt() ?? 使用工具类 求最大 最小 和 平均值
     @Test
     public void test10(){
         List<Integer> primes = Arrays.asList(2,3,5,7,11,13,17,19,23,29);
@@ -162,30 +169,5 @@ public class LambdaTest {
         System.out.println("总和 :" + stats.getSum());
         System.out.println("平均值 :" + stats.getAverage());
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
