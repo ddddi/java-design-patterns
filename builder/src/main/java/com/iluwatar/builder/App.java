@@ -27,7 +27,13 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * 
+ * 建造者模式:
+ *  定义: 将一个复杂对象的构建与它的表示分离,使得同样的构建过程可以创建不同的表示
+ *  作用: 在用户不知道对象的建造过程和细节的情况下就可以直接创建复杂的对象
+ *  易于解耦和
+ *  易于精准控制对象的创建
+ *  易于拓展
+ *  只能应用于相似的产品 所生产过于复杂会导致系统庞大
  * The intention of the Builder pattern is to find a solution to the telescoping constructor
  * anti-pattern. The telescoping constructor anti-pattern occurs when the increase of object
  * constructor parameter combination leads to an exponential list of constructors. Instead of using

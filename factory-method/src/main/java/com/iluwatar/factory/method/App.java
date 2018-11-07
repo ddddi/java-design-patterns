@@ -26,6 +26,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
+ *  工厂模式: 为创建对象提供过渡接口,以便将创建对象的具体过程屏蔽隔离起来,达到提高灵活性
+ *      主要目的是为了解耦和
  *  工厂方法模式: 即将 同一类型的调用类 继承同一父类  向上转为父类 在调用的模式
  *  使用接口和继承类 将继承类给到当前类中 并向上转型为 接口  然后调用继承类的方法
  *  转型:
@@ -35,6 +37,9 @@ import org.slf4j.LoggerFactory;
  *      向下转型:
  *          子类对象的父类引用赋予子类,需强制转换
  *          里氏替换原则： “派生类（子类）对象能够替换其基类（超类）对象被使用。”
+ *  java8中引用stream可以对集合进行过滤、排序、映射等操作。
+ *
+ *  OrcBlacksmith 和 ElfBlacksmith 实现Blacksmith接口 有共有的生成 weapon的方法
  *
  * The Factory Method is a creational design pattern which uses factory methods to deal with the
  * problem of creating objects without specifying the exact class of object that will be created.
@@ -73,6 +78,7 @@ public class App {
    */
   public static void main(String[] args) {
     // Lets go to war with Orc weapons
+      // 调用构造方法 向上转型为 Blacksmith
     App app = new App(new OrcBlacksmith());
     app.manufactureWeapons();
     
@@ -80,7 +86,9 @@ public class App {
     app = new App(new ElfBlacksmith());
     app.manufactureWeapons();
   }
-  
+
+
+
   private void manufactureWeapons() {
     Weapon weapon;
     weapon = blacksmith.manufactureWeapon(WeaponType.SPEAR);

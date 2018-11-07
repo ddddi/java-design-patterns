@@ -59,6 +59,8 @@ public class Weather {
    */
   public void timePasses() {
     WeatherType[] enumValues = WeatherType.values();
+    // 通过调用 ordinal() 得到 枚举值的序数
+      // 该方法是得到枚举值
     currentWeather = enumValues[(currentWeather.ordinal() + 1) % enumValues.length];
     LOGGER.info("The weather changed to {}.", currentWeather);
     notifyObservers();
