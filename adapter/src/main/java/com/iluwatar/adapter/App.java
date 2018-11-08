@@ -23,6 +23,20 @@
 package com.iluwatar.adapter;
 
 /**
+ *  适配器模式:
+ *      用于连接不匹配的二者之间,用于连接二者,将不匹配变为
+ *  1. 类适配器模式: 通过继承来实现适配器功能
+ *
+ *  2. 对象适配器模式: 通过组合来实现适配器功能
+ *      1. 2. 应用场景:
+ *        1> 想使用一个已存在的类,但是不符合接口规范,导致无法直接方法
+ *        2> 想将一个类设计为可重用的类(可被多次访问),可以通过适配器将该类来适配其他没有提供合适接口的类
+ *  3. 接口适配器模式: 通过抽象类来实现适配
+ *      接口中方法过多,定义一个抽象类来实现该接口,抽象类中方法都定义为空 然后再继承抽象类
+ *      这个抽象类就是 适配器
+ *
+ *
+ *
  * An adapter helps two incompatible interfaces to work together. This is the real world definition
  * for an adapter. Interfaces may be incompatible but the inner functionality should suit the need.
  * The Adapter design pattern allows otherwise incompatible classes to work together by converting

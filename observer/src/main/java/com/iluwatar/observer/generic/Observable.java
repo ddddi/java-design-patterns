@@ -26,6 +26,8 @@ import java.util.List;
 import java.util.concurrent.CopyOnWriteArrayList;
 
 /**
+ * Observable<S extends Observable<S, O, A>, O extends Observer<S, O, A>, A>
+ *      参数没有其他什么意思 就是 泛型 及 参数必须 要继承该类
  * Generic observer inspired by Java Generics and Collection by {@literal Naftalin & Wadler}
  *
  * @param <S> Subject

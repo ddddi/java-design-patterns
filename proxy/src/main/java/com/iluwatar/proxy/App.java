@@ -22,8 +22,26 @@
  */
 package com.iluwatar.proxy;
 
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
+
 /**
- * 
+ *  代理模式: 利用开闭原则( 对扩展开放,对修改关闭 )
+ *    使用代理对象来执行目标对象的方法并在代理对象中增强目标对象的一种设计模式
+ *  代理模式元素:
+ *      共同接口  代理对象  目标对象
+ *  代理模式行为:
+ *      由代理对象执行目标对象的方法、由代理对象扩展目标对象的方法
+ *  代理模式的宏观特性:
+ *      对客户端只暴露接口,不暴露它一下的架构
+ *  代理模式的种类:
+ *      静态代理、动态代理( jdk动态代理、cglib动态代理、Spring和AspectJ实现的动态代理 )
+ *      ( 该方法就是静态代理 )
+ *  jdk动态代理: 利用反射技术来实现 需要实现接口
+ *     Proxy.newProxyInstance(类加载器,类实现的接口,句柄)
+ *     在invoke前后添加通知,对原方法进行扩展
+ *  cglib动态代理: 需要实现类
  * A proxy, in its most general form, is a class functioning as an interface to something else. The
  * proxy could interface to anything: a network connection, a large object in memory, a file, or
  * some other resource that is expensive or impossible to duplicate. In short, a proxy is a wrapper
@@ -45,12 +63,26 @@ public class App {
    */
   public static void main(String[] args) {
 
+      // 代理类中必须有有参构造方法 用于将目标类的对象赋值给该类
+      // 在代理类中调用目标类的方法 以实现代理功能
     WizardTowerProxy proxy = new WizardTowerProxy(new IvoryTower());
     proxy.enter(new Wizard("Red wizard"));
     proxy.enter(new Wizard("White wizard"));
     proxy.enter(new Wizard("Black wizard"));
     proxy.enter(new Wizard("Green wizard"));
     proxy.enter(new Wizard("Brown wizard"));
+
+    // 动态代理
+      WizardTower proxyJDK = (WizardTower)Proxy.newProxyInstance(IvoryTower.class.getClassLoader(), IvoryTower.class.getInterfaces(), new InvocationHandler() {
+          @Override
+          public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+              System.out.println("jdk动态代理");
+              method.invoke(new IvoryTower(), args);
+              return null;
+          }
+      });
+      proxyJDK.enter(new Wizard("Red wizard"));
+
 
   }
 }

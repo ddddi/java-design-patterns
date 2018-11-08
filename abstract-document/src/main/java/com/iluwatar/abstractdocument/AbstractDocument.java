@@ -37,6 +37,7 @@ public abstract class AbstractDocument implements Document {
   private final Map<String, Object> properties;
 
   protected AbstractDocument(Map<String, Object> properties) {
+    // 判断是否为空,如果为空throw NPE 并输出  message
     Objects.requireNonNull(properties, "properties map is required");
     this.properties = properties;
   }
